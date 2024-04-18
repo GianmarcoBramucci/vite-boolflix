@@ -4,11 +4,34 @@
 </template>
 
 <script>
+import {store} from './store.js'
+import axios from 'axios';
   export default {
-    name: 'App'
+    name: 'App',
+    data(){
+      return{
+        store
+      }
+    },
+    components:{
+
+    },
+    methods:{
+      getMovies: function(){
+        axios.get(this.store.urlApi+ this.store.endPoint.movie,this.store.options).then((ris)=>{
+          console.log(ris.data);
+        })
+      },
+      getSerie: function(){
+
+      }
+    },
+    created(){
+      this.getMovies()
+    }
   }
 </script>
-
+  
 <style lang="scss" scoped>
 
 </style>
