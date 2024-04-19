@@ -24,7 +24,7 @@
     import CompCard from './CompCard.vue'
     export default {
         name: 'CompMain',
-        data(){
+        data(){ 
             return{
                 store 
             }

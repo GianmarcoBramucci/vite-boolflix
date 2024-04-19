@@ -8,8 +8,10 @@
               <div class="flip-card-back">
                 <h3>{{ tvTittle }}</h3>
                 <h5>{{ origianlTvTittle }}</h5>
-                <p>{{ originalLang }}</p>
-                <p>{{ voteAverege }}</p>
+                <div> <img :src="`../img/${originalLang}.png`" ></div>
+                <div>
+                    <i class="fa-star" :class="{'fa-solid': n <= checkStar,'fa-regular': n > checkStar}" v-for="n in 5"></i>
+                </div>
                 <p>{{ overview }}</p>
               </div>
             </div>
@@ -27,8 +29,19 @@
             'originalLang',
             'voteAverege',
             'overview'
-        ]
+        ],
+        data(){
+            return{
+                
+            }
+        },
+        computed:{
+            checkStar: function(){
+                return  Math.ceil(this.voteAverege / 2);
+            }
+        }
     }
+
 </script>
 
 <style lang="scss" scoped>
@@ -76,5 +89,8 @@
     color: white;
     overflow-y: scroll;
     transform: rotateY(180deg);
+  }
+  i{
+    color: red;
   }
 </style>
