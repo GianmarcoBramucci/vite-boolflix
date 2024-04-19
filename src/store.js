@@ -11,7 +11,7 @@ export const store = reactive({
             query:''
         }
     },
-    imgPath: 'http://image.tmdb.org/t/p/original',
+    imgPath: 'http://image.tmdb.org/t/p/w342',
     movies:[],
     serieTv:[],
     searchBar: ''

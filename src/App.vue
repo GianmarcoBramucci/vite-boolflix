@@ -1,20 +1,23 @@
 <template>
     <CompHeader @queryCheck="setQuery"/>
+    <CompMain/>
 </template>
 
 <script>
 import {store} from './store.js';
 import axios from 'axios';
-import CompHeader from './components/CompHeader.vue'
+import CompHeader from './components/CompHeader.vue';
+import CompMain from './components/CompMain.vue';
   export default {
     name: 'App',
     data(){
       return{
-        store
+        store,
       }
     },
     components:{
-      CompHeader
+      CompHeader,
+      CompMain
     },
     methods:{
       getMovies: function(){
