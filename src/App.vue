@@ -1,11 +1,11 @@
 <template>
-  <h1 class="text-center">Ciao</h1>
-  <i class="fa fa-solid fa-home"></i>
+    <CompHeader @queryCheck="setQuery"/>
 </template>
 
 <script>
-import {store} from './store.js'
+import {store} from './store.js';
 import axios from 'axios';
+import CompHeader from './components/CompHeader.vue'
   export default {
     name: 'App',
     data(){
@@ -14,20 +14,30 @@ import axios from 'axios';
       }
     },
     components:{
-
+      CompHeader
     },
     methods:{
       getMovies: function(){
         axios.get(this.store.urlApi+ this.store.endPoint.movie,this.store.options).then((ris)=>{
           console.log(ris.data);
+          this.store.movies = ris.data;
         })
       },
       getSerie: function(){
-
+        axios.get(this.store.urlApi+ this.store.endPoint.serieTv,this.store.options).then((ris)=>{
+          console.log(ris.data);
+          this.store.serieTv = ris.data;
+        })
+      },
+      setQuery: function(){
+        this.store.options.params.query = this.store.searchBar;
+        console.log(this.store.options.params.query);
+        this.getMovies();
+        this.getSerie();
       }
     },
     created(){
-      this.getMovies()
+      
     }
   }
 </script>
