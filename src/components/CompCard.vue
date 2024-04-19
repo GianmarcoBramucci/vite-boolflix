@@ -8,7 +8,9 @@
               <div class="flip-card-back">
                 <h3>{{ tvTittle }}</h3>
                 <h5>{{ origianlTvTittle }}</h5>
-                <div> <img :src="`../img/${originalLang}.png`" ></div>
+                <div> 
+                    <img :src="`/img/${originalLang}.png`">
+                </div>
                 <div>
                     <i class="fa-star" :class="{'fa-solid': n <= checkStar,'fa-regular': n > checkStar}" v-for="n in 5"></i>
                 </div>
