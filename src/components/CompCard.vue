@@ -9,7 +9,7 @@
                 <h3>{{ tvTittle }}</h3>
                 <h5>{{ origianlTvTittle }}</h5>
                 <div> 
-                    <img :src="`/img/${originalLang}.png`">
+                    <img :src="`/images/${originalLang}.png`" class="flag3">
                 </div>
                 <div>
                     <i class="fa-star" :class="{'fa-solid': n <= checkStar,'fa-regular': n > checkStar}" v-for="n in 5"></i>
@@ -94,5 +94,9 @@
   }
   i{
     color: red;
+  }
+  .flag3{
+    height: 50px;
+    
   }
 </style>
